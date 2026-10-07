@@ -1,5 +1,21 @@
 <title>Rajesh Ranjan</title>
 <meta name="description" content="Rajesh Ranjan, VP, Solutions & Enterprise Architect at a global bank in Singapore. Digital, API and payments architecture, and agentic AI with MCP.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rajeshranjan66.github.io/">
+<meta property="og:title" content="Rajesh Ranjan · Solutions &amp; Enterprise Architect">
+<meta property="og:description" content="Digital, API and payments architecture, plus personal agentic AI experiments with LangGraph and MCP.">
+<meta property="og:image" content="https://rajeshranjan66.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rajesh Ranjan, Solutions and Enterprise Architect">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rajesh Ranjan · Solutions &amp; Enterprise Architect">
+<meta name="twitter:description" content="Digital, API and payments architecture, plus personal agentic AI experiments with LangGraph and MCP.">
+<meta name="twitter:image" content="https://rajeshranjan66.github.io/og.png">
+<meta name="theme-color" content="#1D4ED8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231D4ED8'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='29' font-weight='800' fill='white' text-anchor='middle'%3ERR%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -186,22 +202,50 @@ textarea{min-height:130px;resize:vertical}
 .formnote.ok{color:var(--accent)}
 .hp{position:absolute;left:-9999px}
 
+/* mobile menu */
+.menu-btn{display:none;width:42px;height:42px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;align-items:center;justify-content:center}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;position:relative;transition:transform .2s,background .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.nav.open .menu-btn span{background:transparent}
+.nav.open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
+.nav.open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
+.nav-right{display:flex;align-items:center;gap:10px}
+/* active section */
+.nav ul a{position:relative;padding-block:6px}
+.nav ul a.active{color:var(--ink)}
+.nav ul a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--accent)}
+@media (max-width:860px){
+  .menu-btn{display:inline-flex}
+  .nav ul{display:none;position:absolute;left:0;right:0;top:60px;flex-direction:column;gap:0;padding:8px clamp(16px,4vw,32px) 16px;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 18px 30px -20px rgba(14,26,38,.45)}
+  .nav.open ul{display:flex}
+  .nav ul li a{display:block;padding:13px 0;font-size:16px;border-bottom:1px solid var(--line)}
+  .nav ul li:last-child a{border-bottom:0}
+  .nav ul a.active::after{left:-12px;right:auto;top:14px;bottom:14px;width:3px;height:auto}
+}
+/* scroll reveal (only applied by script to content below the first screen) */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
 footer nav{display:flex;gap:18px;flex-wrap:wrap}
 </style>
 
-<header class="nav">
+<header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="#top">Rajesh<span>.</span>Ranjan</a>
-    <ul>
+    <ul id="navList">
       <li><a href="#about">About</a></li>
-      <li><a href="#products">Products</a></li>
+      <li><a href="#products">AI Builds</a></li>
       <li><a href="#labs">AI Research</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#writing">Writing</a></li>
       <li><a href="#certifications">Certifications</a></li>
     </ul>
-    <a class="btn primary" href="#contact">Contact</a>
+    <div class="nav-right">
+      <a class="btn primary" href="#contact">Contact</a>
+      <button class="menu-btn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navList"><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -487,6 +531,29 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap}
 </footer>
 
 <script>
+// mobile menu
+const nav=document.getElementById('nav'), menuBtn=document.getElementById('menuBtn');
+const setMenu=o=>{nav.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);menuBtn.setAttribute('aria-label',o?'Close menu':'Open menu');};
+menuBtn.addEventListener('click',()=>setMenu(!nav.classList.contains('open')));
+document.querySelectorAll('#navList a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});
+document.addEventListener('click',e=>{if(nav.classList.contains('open')&&!nav.contains(e.target))setMenu(false);});
+
+// active section in nav
+const links=[...document.querySelectorAll('#navList a')];
+const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+const secs=[...map.keys()].map(id=>document.getElementById(id)).filter(Boolean);
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));map.get(e.target.id)?.classList.add('active');}});},{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s=>io.observe(s));
+  // gentle reveal for blocks below the first screen
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const items=document.querySelectorAll('.s h2,.s .intro,.product,.lab,.role,.post,.talk,.skill,.cert,.aboutcopy,.focus,.cline,form');
+    const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target);}}),{rootMargin:'0px 0px -8% 0px'});
+    items.forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add('rv');rio.observe(el);}});
+  }
+}
+
 // Paste your Formspree form ID here (the part after /f/ in your endpoint), e.g. "xyzabcd"
 const FORMSPREE_ID = "mgaoonww";
 
