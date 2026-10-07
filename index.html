@@ -98,7 +98,8 @@ section.s{padding-block:76px;border-bottom:1px solid var(--line)}
 .about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px;margin-top:34px}
 @media (max-width:860px){.about{grid-template-columns:1fr;gap:28px}}
 .about p+p{margin-top:16px}
-.about .copy{font-size:17px;max-width:64ch}
+.about .aboutcopy{font-size:17px;max-width:64ch}
+.disc{display:block;margin-top:6px;font-size:12.5px;max-width:70ch;line-height:1.5}
 .focus{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .focus li{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;font-size:14.5px}
 .focus li span:first-child{font:500 12px/1.5 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
@@ -195,7 +196,7 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap}
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
-      <li><a href="#labs">Labs</a></li>
+      <li><a href="#labs">AI Research</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#writing">Writing</a></li>
       <li><a href="#certifications">Certifications</a></li>
@@ -223,7 +224,7 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap}
       <div class="facts">
         <div><b>~19</b><span>years in integration &amp; architecture</span></div>
         <div><b>100+</b><span>Open Banking API partnerships launched</span></div>
-        <div><b>30+</b><span>cloud, architecture &amp; AI certifications</span></div>
+        <div><b>50+</b><span>cloud, architecture &amp; AI certifications</span></div>
         <div><b>2</b><span>AI products built and running in production</span></div>
       </div>
     </div>
@@ -259,10 +260,10 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap}
     <div class="eyebrow"><b>GET</b>/about</div>
     <h2>Payments architecture by profession. Agentic AI by curiosity.</h2>
     <div class="about">
-      <div class="copy">
-        <p>I lead current-to-target architecture for Digital, API and Payments for a global private bank, covering APAC, EMEA and North America. My work spans the SWIFT MT to ISO 20022 migration, real-time payments, Apple and Google Pay, card platforms, and regulatory programmes such as Pay.UK Confirmation of Payee, SEPA Verification of Payee and UAE's NPSS.</p>
-        <p>In 2015 I was on the core team that built the bank's first Open Banking API, then launched its developer sandbox at the Singapore FinTech Festival in 2016. Since then I've led more than 100 partner integrations across APAC and EMEA.</p>
-        <p>Outside my day job, I explore generative AI through hands-on proofs of concept and my own products. A recurring theme is using MCP as a governed boundary between an LLM and sandbox banking APIs.</p>
+      <div class="aboutcopy">
+        <p>As Vice President and Solutions Architect, I lead digital transformation initiatives and architect payment and API platforms across global markets. I specialise in Open Banking APIs, enterprise integration and large-scale payment systems, delivering secure, scalable solutions across API gateways, Java microservices, OpenShift, AWS, OCI and TIBCO.</p>
+        <p>My focus is architecture that meets the realities of regulated financial environments while still enabling speed and innovation. Earlier, as Integration and Delivery Lead at TCS and Wipro, I was on the core team that built the bank's first Open Banking API and took more than 100 partner integrations live. That shaped how I approach API security, integration patterns and architecture governance.</p>
+        <p>Alongside my core role, I design and build AI proofs of concept for learning. They explore how agentic AI, the Model Context Protocol and secure tool orchestration apply to banking use cases such as payments intelligence, rewards processing, document-to-decision workflows and investment research. The emphasis is governance, traceability and guardrails, not just model performance.</p>
       </div>
       <ul class="focus">
         <li><span>Payments</span><span>ISO 20022, RTP, digital wallets, cards, PSD2, CoP / VoP</span></li>
@@ -278,8 +279,8 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap}
 <section class="s" id="products">
   <div class="wrap">
     <div class="eyebrow"><b>GET</b>/products</div>
-    <h2>Products I've built</h2>
-    <p class="intro">Two live applications, designed, built and deployed end to end. Both keep a human in charge of the final decision.</p>
+    <h2>Personal products</h2>
+    <p class="intro">Two live applications I designed, built and run independently, outside my core role. Both keep a human in charge of the final decision.</p>
     <div class="products">
       <article class="product">
         <div class="top"><span class="tag">Open beta</span><span class="mono" style="font-size:12px;color:var(--muted)">atlasverve.com</span></div>
@@ -311,9 +312,9 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap}
 
 <section class="s" id="labs">
   <div class="wrap">
-    <div class="eyebrow"><b>GET</b>/labs</div>
-    <h2>Builds and proofs of concept</h2>
-    <p class="intro">Hands-on work behind the articles. Each one tests an architecture pattern before it goes anywhere near production.</p>
+    <div class="eyebrow"><b>GET</b>/research</div>
+    <h2>Personal AI research &amp; experiments</h2>
+    <p class="intro">Proofs of concept I build for learning, alongside my core role. Each one tests an architecture pattern, with public code and write-ups where available.</p>
     <div class="labs">
       <article class="lab">
         <span class="k">Banking · MCP</span>
@@ -437,8 +438,8 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap}
           <div class="cert"><span class="n">14×</span><div><b>Microsoft Azure</b><span>Incl. Azure Solutions Architect Expert, DevOps, Data Science, AI</span></div></div>
           <div class="cert"><span class="n">9×</span><div><b>Amazon Web Services</b><span>Solutions Architect Pro, DevOps Engineer Pro, Data Analytics, Database, Networking</span></div></div>
           <div class="cert"><span class="n">6×</span><div><b>TIBCO</b><span>Including container edition</span></div></div>
-          <div class="cert"><span class="n">TOGAF</span><div><b>TOGAF 10 Enterprise Architecture Practitioner</b><span>The Open Group</span></div></div>
-          <div class="cert"><span class="n">OCI</span><div><b>Oracle Certified Generative AI Professional</b><span>LLMs, RAG, embeddings, vector search</span></div></div>
+          <div class="cert"><span class="n">TOGAF</span><div><b>TOGAF 10 Foundation &amp; Practitioner</b><span>The Open Group</span></div></div>
+          <div class="cert"><span class="n">OCI</span><div><b>Oracle Generative AI Professional · Vector Database</b><span>LLMs, RAG, embeddings, vector search</span></div></div>
           <div class="cert"><span class="n">GCP</span><div><b>Google Associate Cloud Engineer · Apigee Engineer</b><span>Google Cloud</span></div></div>
           <div class="cert"><span class="n">+3</span><div><b>MuleSoft Developer L1 · IBM DataPower · IBM API Connect</b><span>Integration and gateway credentials</span></div></div>
         </div>
@@ -452,7 +453,7 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap}
   <div class="wrap">
     <div class="eyebrow"><b>POST</b>/contact</div>
     <h2>Let's talk architecture, payments or agentic AI.</h2>
-    <p class="intro">Happy to connect about architecture, AI products, collaborations and speaking. Based in Singapore.</p>
+    <p class="intro">I enjoy connecting with people working where AI, payments, APIs and enterprise architecture meet, and exploring collaborations on responsible AI adoption in financial services. Based in Singapore.</p>
     <div class="contact">
       <div>
         <div class="cline"><div><small>Email</small><span class="v" id="em">rajesh.ranjan66@gmail.com</span></div><button class="copy" type="button" id="copyBtn">Copy</button></div>
@@ -480,7 +481,7 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap}
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Rajesh Ranjan · Singapore</span>
+    <span>© 2026 Rajesh Ranjan · Singapore<br><small class="disc">Views expressed here are my own and do not represent my employer, clients or affiliated organisations. AI projects are personal learning work.</small></span>
     <nav><a href="https://www.linkedin.com/in/rajeshranjan66" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/rajeshranjan66" target="_blank" rel="noopener">GitHub</a><a href="https://rajeshranjancs.medium.com" target="_blank" rel="noopener">Medium</a><a href="https://www.credly.com/users/rajesh-ranjan.9a16dc79/badges" target="_blank" rel="noopener">Credly</a></nav>
   </div>
 </footer>
